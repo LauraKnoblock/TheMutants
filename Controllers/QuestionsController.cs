@@ -7,7 +7,7 @@ namespace TheMutants.Controllers
 
     {
 
-        private static List<string> Questions = new List<string>();
+        private static Dictionary<string, string> Questions = new Dictionary<string, string>();
 
         public IActionResult Index()
         {
@@ -25,9 +25,9 @@ namespace TheMutants.Controllers
         [HttpPost]
         [Route("/Questions/Add")]
 
-        public IActionResult NewQuestion(string name)
+        public IActionResult NewQuestion(string name, string answer)
         {
-            Questions.Add(name);
+            Questions.Add(name, answer);
 
             return Redirect("/Questions");
         }

@@ -28,3 +28,4 @@ C:\Users\laura\source\repos\TheMutants\obj\Debug\net8.0\refint\TheMutants.dll
 C:\Users\laura\source\repos\TheMutants\obj\Debug\net8.0\TheMutants.pdb
 C:\Users\laura\source\repos\TheMutants\obj\Debug\net8.0\TheMutants.genruntimeconfig.cache
 C:\Users\laura\source\repos\TheMutants\obj\Debug\net8.0\ref\TheMutants.dll
+C:\Users\laura\source\repos\TheMutants\obj\Debug\net8.0\TheMutants.sourcelink.json

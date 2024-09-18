@@ -13,9 +13,25 @@
 {
     <p>No Questions yet!</p>
 }
-<ul>
-    @foreach(string q in ViewBag.questions)
-    {
-        <li>@q</li>
-    }
-</ul>
+else
+{
+    <table>
+        <tr>
+            <th>
+                Question
+            </th>
+            <th>
+                Answer
+            </th>
+        </tr>
+        @foreach (KeyValuePair<string, string> q in ViewBag.questions)
+        {
+            <tr>
+                <td>@q.Key</td>
+                <td>@q.Value</td>
+            </tr>
+        }
+    </table>
+    
+}
+
