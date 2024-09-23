@@ -10,14 +10,15 @@
 
 <form asp-controller="Questions" asp-action="Add" method="post">
     <div class="form-group">
-        <label>
-            Name
-            <input type="text" name="name" class="form-control">
-        </label>
-        <label>
-            Answer
-            <input type="text" name="answer" class="form-control">
-        </label>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div>
+        <label asp-for="Answer"></label>
+        <input asp-for="Answer" class="form-control" />
+        <span asp-validation-for="Answer" class="text-danger"></span>
+        
     </div>
     <input type="submit" value="Add Question" class="form-control" />
     

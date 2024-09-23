@@ -30,15 +30,19 @@ namespace TheMutants.Controllers
 
         public IActionResult Add(AddQuestionViewModel addQuestionViewModel)
         {
-            Question newQuestion = new Question 
+            if (ModelState.IsValid)
             {
-                Name = addQuestionViewModel.Name,
-                Answer = addQuestionViewModel.Answer,
-            };
+                Question newQuestion = new Question
+                {
+                    Name = addQuestionViewModel.Name,
+                    Answer = addQuestionViewModel.Answer,
+                };
 
-            QuestionData.Add(newQuestion);
+                QuestionData.Add(newQuestion);
 
-            return Redirect("/Questions");
+                return Redirect("/Questions");
+            }
+            return View(addQuestionViewModel);
         }
 
         public IActionResult Delete()
