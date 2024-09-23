@@ -18,6 +18,10 @@
         <label asp-for="Answer"></label>
         <input asp-for="Answer" class="form-control" />
         <span asp-validation-for="Answer" class="text-danger"></span>
+        <div class="form-group">
+            <label asp-for="Category">Category</label>
+            <select asp-for="Category" asp-items="Model.QuestionCategories"></select>
+        </div>
         
     </div>
     <input type="submit" value="Add Question" class="form-control" />

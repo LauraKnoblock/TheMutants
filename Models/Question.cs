@@ -5,6 +5,8 @@
         public string? Name { get; set; }
         public string? Answer { get; set; }
 
+        public QuestionCategory Category { get; set; }  
+
         public int Id { get; set; }
         static private int nextId = 1;
 

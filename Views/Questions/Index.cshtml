@@ -26,16 +26,21 @@ else
                 Id
             </th>
             <th>
+                Category
+            </th>
+            <th>
                 Question
             </th>
             <th>
                 Answer
             </th>
+            
         </tr>
         @foreach (var q in Model)
         {
             <tr>
                 <td>@q.Id</td>
+                <td>@q.Category</td>
                 <td>@q.Name</td>
                 <td>@q.Answer</td>
                 <td><a asp-controller="Questions" asp-action="Edit" asp-route-id="@q.Id">Edit Question</a></td>
