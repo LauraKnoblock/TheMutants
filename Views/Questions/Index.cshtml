@@ -18,6 +18,9 @@ else
     <table>
         <tr>
             <th>
+                Id
+            </th>
+            <th>
                 Question
             </th>
             <th>
@@ -27,6 +30,7 @@ else
         @foreach (var q in ViewBag.questions)
         {
             <tr>
+                <td>@q.Id</td>
                 <td>@q.Name</td>
                 <td>@q.Answer</td>
 

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TheMutants")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f69f3522dbfdcb81be91eccdc06962274d031509")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+551be14f4f7d1325357469a29f4b8f086213414c")]
 [assembly: System.Reflection.AssemblyProductAttribute("TheMutants")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TheMutants")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

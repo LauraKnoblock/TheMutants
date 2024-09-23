@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TheMutants.Data;
 using TheMutants.Models;
 
 namespace TheMutants.Controllers
@@ -13,7 +14,7 @@ namespace TheMutants.Controllers
         public IActionResult Index()
         {
 
-            ViewBag.questions = Questions;
+            ViewBag.questions = QuestionData.GetAll();
             return View();
         }
 
@@ -28,7 +29,7 @@ namespace TheMutants.Controllers
 
         public IActionResult NewQuestion(string name, string answer)
         {
-            Questions.Add(new Question(name, answer));
+            QuestionData.Add(new Question(name, answer));
 
             return Redirect("/Questions");
         }
