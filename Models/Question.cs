@@ -8,6 +8,11 @@
         public int Id { get; set; }
         static private int nextId = 1;
 
+        public Question()
+        {
+            Id = nextId;
+            nextId++;
+        }
         public Question(string name, string answer)
         {
             Name = name;

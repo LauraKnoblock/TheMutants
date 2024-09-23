@@ -6,11 +6,16 @@
 <h1>Add a Trivia Question</h1>
 
 <form method="post">
-    <label for="name">Name</label>
-    <input name="name" type="text" />
-
-    <label for="answer">Answer</label>
-    <input name="answer" />
-    <input type="submit" value="Add Question" />
+    <div class="form-group">
+        <label>
+            Name
+            <input type="text" name="name" class="form-control">
+        </label>
+        <label>
+            Answer
+            <input type="text" name="answer" class="form-control">
+        </label>
+    </div>
+    <input type="submit" value="Add Question" class="form-control" />
     
 </form>

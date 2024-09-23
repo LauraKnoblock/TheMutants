@@ -27,9 +27,9 @@ namespace TheMutants.Controllers
         [HttpPost]
         [Route("/Questions/Add")]
 
-        public IActionResult NewQuestion(string name, string answer)
+        public IActionResult NewQuestion(Question newQuestion)
         {
-            QuestionData.Add(new Question(name, answer));
+            QuestionData.Add(newQuestion);
 
             return Redirect("/Questions");
         }
