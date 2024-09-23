@@ -33,5 +33,24 @@ namespace TheMutants.Controllers
 
             return Redirect("/Questions");
         }
+
+        public IActionResult Delete()
+        {
+            ViewBag.questions = QuestionData.GetAll();
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int[] questionIds)
+        {
+            foreach (int questionId in questionIds)
+            {
+                QuestionData.Remove(questionId);
+            }
+
+            return Redirect("/Questions");
+
+        }
     }
 }
