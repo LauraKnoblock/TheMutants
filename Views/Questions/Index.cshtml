@@ -24,11 +24,12 @@ else
                 Answer
             </th>
         </tr>
-        @foreach (KeyValuePair<string, string> q in ViewBag.questions)
+        @foreach (var q in ViewBag.questions)
         {
             <tr>
-                <td>@q.Key</td>
-                <td>@q.Value</td>
+                <td>@q.Name</td>
+                <td>@q.Answer</td>
+
             </tr>
         }
     </table>

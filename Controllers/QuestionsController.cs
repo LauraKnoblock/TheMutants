@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TheMutants.Models;
 
 namespace TheMutants.Controllers
 {
@@ -7,7 +8,7 @@ namespace TheMutants.Controllers
 
     {
 
-        private static Dictionary<string, string> Questions = new Dictionary<string, string>();
+        private static List<Question> Questions = new List<Question>();
 
         public IActionResult Index()
         {
@@ -27,7 +28,7 @@ namespace TheMutants.Controllers
 
         public IActionResult NewQuestion(string name, string answer)
         {
-            Questions.Add(name, answer);
+            Questions.Add(new Question(name, answer));
 
             return Redirect("/Questions");
         }
