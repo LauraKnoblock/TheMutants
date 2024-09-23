@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TheMutants.Data;
 using TheMutants.Models;
+using TheMutants.ViewModels;
 
 namespace TheMutants.Controllers
 {
@@ -14,21 +15,27 @@ namespace TheMutants.Controllers
         public IActionResult Index()
         {
 
-            ViewBag.questions = QuestionData.GetAll();
-            return View();
+            List<Question> questions = new List<Question>(QuestionData.GetAll());
+            return View(questions);
         }
 
         [HttpGet]
         public IActionResult Add()
         {
-            return View();
+            AddQuestionViewModel addQuestionViewModel = new AddQuestionViewModel();
+            return View(addQuestionViewModel);
         }
 
         [HttpPost]
-        [Route("/Questions/Add")]
 
-        public IActionResult NewQuestion(Question newQuestion)
+        public IActionResult Add(AddQuestionViewModel addQuestionViewModel)
         {
+            Question newQuestion = new Question 
+            {
+                Name = addQuestionViewModel.Name,
+                Answer = addQuestionViewModel.Answer,
+            };
+
             QuestionData.Add(newQuestion);
 
             return Redirect("/Questions");
@@ -51,6 +58,25 @@ namespace TheMutants.Controllers
 
             return Redirect("/Questions");
 
+        }
+        [HttpPost]
+        [Route("Questions/Edit/{questionId}")]
+        public IActionResult Edit(int questionId)
+        {
+            Question editingQuestion = QuestionData.GetById(questionId);
+            ViewBag.questionToEdit = editingQuestion;
+            ViewBag.title = "Edit Question " + editingQuestion.Name + "(id = " + editingQuestion.Id + ")";
+            return View();
+        }
+
+        [HttpPost]
+        [Route("Questions/Edit")]
+        public IActionResult SubmitEditQuestionForm(int questionId, string name, string answer)
+        {
+            Question editingQuestion = QuestionData.GetById(questionId);
+            editingQuestion.Name = name;
+            editingQuestion.Answer = answer;
+            return Redirect("/Questions");
         }
     }
 }

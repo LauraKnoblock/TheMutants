@@ -3,9 +3,12 @@
 *@
 @{
 }
+@using TheMutants.ViewModels;
+@model AddQuestionViewModel;
+
 <h1>Add a Trivia Question</h1>
 
-<form method="post">
+<form asp-controller="Questions" asp-action="Add" method="post">
     <div class="form-group">
         <label>
             Name
