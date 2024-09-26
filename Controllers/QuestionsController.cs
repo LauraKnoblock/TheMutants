@@ -9,13 +9,19 @@ namespace TheMutants.Controllers
 
 
     {
+        private QuestionDbContext context;
+
+        public QuestionsController(QuestionDbContext dbContext)
+        {
+            context = dbContext;
+        }
 
         private static List<Question> Questions = new List<Question>();
 
         public IActionResult Index()
         {
 
-            List<Question> questions = new List<Question>(QuestionData.GetAll());
+            List<Question> questions = context.Questions.ToList();
             return View(questions);
         }
 
@@ -39,7 +45,8 @@ namespace TheMutants.Controllers
                     Category = addQuestionViewModel.Category
                 };
 
-                QuestionData.Add(newQuestion);
+                context.Questions.Add(newQuestion);
+                context.SaveChanges();
 
                 return Redirect("/Questions");
             }
@@ -48,7 +55,7 @@ namespace TheMutants.Controllers
 
         public IActionResult Delete()
         {
-            ViewBag.questions = QuestionData.GetAll();
+            ViewBag.questions = context.Questions.ToList();
 
             return View();
         }
@@ -58,8 +65,11 @@ namespace TheMutants.Controllers
         {
             foreach (int questionId in questionIds)
             {
-                QuestionData.Remove(questionId);
+                Question? theQuestion = context.Questions.Find(questionId);
+                context.Questions.Remove(theQuestion);
             }
+
+            context.SaveChanges();
 
             return Redirect("/Questions");
 

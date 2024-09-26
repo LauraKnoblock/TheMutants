@@ -12,15 +12,11 @@
 
         public Question()
         {
-            Id = nextId;
-            nextId++;
         }
         public Question(string name, string answer)
         {
             Name = name;
             Answer = answer;
-            Id = nextId;
-            nextId++;
         }
 
 
